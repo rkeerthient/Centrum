@@ -22,8 +22,12 @@ import * as React from "react";
 import PageLayout from "../components/page-layout";
 import "../index.css";
 import { ChangeEvent, useState } from "react";
-import GuidedSearch from "../components/guidedSearch";
 import Questionnaire from "../components/questionaire";
+import { UniversalResults } from "@yext/search-ui-react";
+import FAQCard from "../components/FAQCard";
+import FoodCard from "../components/FoodCard";
+import NutritionCard from "../components/NutritionCard";
+import FormulaCard from "../components/FormulaCard";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -99,7 +103,21 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     ],
   };
 };
-
+const GridSection = ({ results, CardComponent, header }: any) => {
+  if (!CardComponent) {
+    return <div>Missing Card Component</div>;
+  }
+  return (
+    <div>
+      <div>{header}</div>
+      <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-8 ">
+        {results.map((r: any, index: number) => (
+          <CardComponent key={index} result={r} />
+        ))}
+      </div>
+    </div>
+  );
+};
 const Location: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
@@ -110,6 +128,29 @@ const Location: Template<TemplateRenderProps> = ({
   return (
     <PageLayout _site={_site}>
       <div className="w-3/4 mx-auto bg-white p-4 shadow">
+        <UniversalResults
+          customCssClasses={{ universalResultsContainer: "w-full" }}
+          verticalConfigMap={{
+            faqs: {
+              CardComponent: FAQCard,
+              viewAllButton: true,
+            },
+            food: {
+              CardComponent: FoodCard,
+              SectionComponent: GridSection,
+              viewAllButton: true,
+            },
+            formulae: {
+              CardComponent: FormulaCard,
+              SectionComponent: GridSection,
+              viewAllButton: true,
+            },
+            nutrition: {
+              CardComponent: NutritionCard,
+              viewAllButton: true,
+            },
+          }}
+        />
         <Questionnaire
           data={buildGsQuestions(c_homeToGSQuestions)}
         ></Questionnaire>

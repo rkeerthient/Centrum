@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 
 const Questionnaire = (props: any) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -14,9 +15,20 @@ const Questionnaire = (props: any) => {
   };
 
   const handleSubmit = (data) => {
+    console.log(data);
+
     const extractedValues = Object.values(data);
-    const extractedString = extractedValues.join(", ");
-    console.log(JSON.stringify(extractedString.split(",").join(" &")));
+    const extractedString = extractedValues.join(",");
+    const queryString = extractedString.split(",");
+
+    const url = `/home-page?query=${queryString
+      .toString()
+      .replaceAll(/\//g, "-")
+      .replaceAll(/ /g, "")}`;
+    console.log(url);
+
+    window.location.href = url;
+    // window.location.href = `/home-page?${JSON.stringify(extractedString.split(",").join(" &"))}
   };
 
   const handleNextStep = () => {

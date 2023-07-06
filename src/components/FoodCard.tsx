@@ -6,12 +6,11 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Image } from "@yext/pages/components";
 
 const FoodCard = (props: CardProps<any>): JSX.Element => {
-  const { result } = props;
-  console.log(JSON.stringify(result));
+  console.log("hii");
 
+  const { result } = props;
   const { name } = result;
   const { primaryPhoto, c_nutritionToFood } = result.rawData;
-  console.log(JSON.stringify(result));
 
   return (
     <div className="w-full  p-4 my-4 ">

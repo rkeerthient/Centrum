@@ -2,6 +2,7 @@ import * as React from "react";
 import Cta from "../components/cta";
 import { SearchBar, onSearchFunc } from "@yext/search-ui-react";
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
+import { useEffect } from "react";
 
 type Link = {
   label: string;
@@ -52,13 +53,26 @@ const Header = ({ _site }: any) => {
     searchActions.setQuery(query!);
     const path = window.location.pathname;
     const queryParams = new URLSearchParams(window.location.search);
-    !state && path.includes("jobs")
-      ? (window.location.href = `/index.html?query=${query!.toString()}`)
-      : state
+
+    state
       ? (searchActions.setVertical(state), searchActions.executeVerticalQuery())
       : (searchActions.setUniversal(), searchActions.executeUniversalQuery());
   };
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Get the current URL search parameters
+      const params = new URLSearchParams(window.location.search);
+
+      // Retrieve a specific query parameter by name
+      const paramValue = params.get("query");
+      searchActions.setQuery(paramValue!);
+      state
+        ? (searchActions.setVertical(state),
+          searchActions.executeVerticalQuery())
+        : (searchActions.setUniversal(), searchActions.executeUniversalQuery());
+    }
+  }, []);
   return (
     <>
       <div className="px-12">
