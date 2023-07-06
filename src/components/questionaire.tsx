@@ -51,7 +51,7 @@ const Questionnaire = (props: any) => {
   const renderSection = (section) => {
     const { header, questions } = section;
     return (
-      <div key={header} className="max-w-md mx-auto">
+      <div key={header} className="">
         <h2 className="text-xl font-bold mb-4">{header}</h2>
         {questions.map((question) =>
           renderQuestion(header, question.question, question.opt)
@@ -65,7 +65,7 @@ const Questionnaire = (props: any) => {
   }%`;
 
   return (
-    <div className="max-w-md mx-auto py-8">
+    <div className="w-full py-8">
       <h1 className="text-2xl font-bold mb-8">Questionnaire</h1>
       <div className="bg-gray-200 h-2 rounded mb-4">
         <div

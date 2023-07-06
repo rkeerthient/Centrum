@@ -109,7 +109,7 @@ const Location: Template<TemplateRenderProps> = ({
 
   return (
     <PageLayout _site={_site}>
-      <div className="max-w-md mx-auto bg-white p-4 shadow">
+      <div className="w-3/4 mx-auto bg-white p-4 shadow">
         <Questionnaire
           data={buildGsQuestions(c_homeToGSQuestions)}
         ></Questionnaire>
