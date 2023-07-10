@@ -1,5 +1,4 @@
 import * as React from "react";
-import Cta from "../components/cta";
 import { SearchBar, onSearchFunc } from "@yext/search-ui-react";
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
 import { useEffect } from "react";
@@ -40,7 +39,6 @@ const Header = ({ _site }: any) => {
   ));
 
   const [path, setPath] = React.useState("");
-
   React.useEffect(() => {
     const currentPath = window.location.pathname;
     setPath(currentPath);
@@ -53,18 +51,17 @@ const Header = ({ _site }: any) => {
     searchActions.setQuery(query!);
     const path = window.location.pathname;
     const queryParams = new URLSearchParams(window.location.search);
-
     state
       ? (searchActions.setVertical(state), searchActions.executeVerticalQuery())
-      : (searchActions.setUniversal(), searchActions.executeUniversalQuery());
+      : (searchActions.setUniversal(),
+        searchActions.executeUniversalQuery().then((res) => {
+          console.log(JSON.stringify(res));
+        }));
   };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Get the current URL search parameters
       const params = new URLSearchParams(window.location.search);
-
-      // Retrieve a specific query parameter by name
       const paramValue = params.get("query");
       searchActions.setQuery(paramValue!);
       state

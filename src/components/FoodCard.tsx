@@ -6,8 +6,6 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Image } from "@yext/pages/components";
 
 const FoodCard = (props: CardProps<any>): JSX.Element => {
-  console.log("hii");
-
   const { result } = props;
   const { name } = result;
   const { primaryPhoto, c_nutritionToFood } = result.rawData;

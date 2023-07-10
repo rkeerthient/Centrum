@@ -21,13 +21,15 @@ import {
 import * as React from "react";
 import PageLayout from "../components/page-layout";
 import "../index.css";
-import { ChangeEvent, useState } from "react";
 import Questionnaire from "../components/questionaire";
 import { UniversalResults } from "@yext/search-ui-react";
 import FAQCard from "../components/FAQCard";
 import FoodCard from "../components/FoodCard";
 import NutritionCard from "../components/NutritionCard";
 import FormulaCard from "../components/FormulaCard";
+import GoalCard from "../components/GoalCard";
+import { useSearchState } from "@yext/search-headless-react";
+import { useEffect, useState } from "react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -124,36 +126,51 @@ const Location: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { _site, name, c_homeToGSQuestions } = document;
+  const [hideFlow, setHideFlow] = useState(false);
+  console.log(hideFlow);
 
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    setHideFlow(queryParams.has("type"));
+  });
   return (
     <PageLayout _site={_site}>
-      <div className="w-3/4 mx-auto bg-white p-4 shadow">
-        <UniversalResults
-          customCssClasses={{ universalResultsContainer: "w-full" }}
-          verticalConfigMap={{
-            faqs: {
-              CardComponent: FAQCard,
-              viewAllButton: true,
-            },
-            food: {
-              CardComponent: FoodCard,
-              SectionComponent: GridSection,
-              viewAllButton: true,
-            },
-            formulae: {
-              CardComponent: FormulaCard,
-              SectionComponent: GridSection,
-              viewAllButton: true,
-            },
-            nutrition: {
-              CardComponent: NutritionCard,
-              viewAllButton: true,
-            },
-          }}
-        />
-        <Questionnaire
-          data={buildGsQuestions(c_homeToGSQuestions)}
-        ></Questionnaire>
+      <div className="w-3/4 mx-auto bg-white p-4  ">
+        {hideFlow && (
+          <UniversalResults
+            customCssClasses={{ universalResultsContainer: "w-full" }}
+            verticalConfigMap={{
+              faqs: {
+                CardComponent: FAQCard,
+                viewAllButton: true,
+              },
+              food: {
+                CardComponent: FoodCard,
+                SectionComponent: GridSection,
+                viewAllButton: true,
+              },
+              formulae: {
+                CardComponent: FormulaCard,
+                SectionComponent: GridSection,
+                viewAllButton: true,
+              },
+              nutrition: {
+                CardComponent: NutritionCard,
+                viewAllButton: true,
+              },
+              goals: {
+                CardComponent: GoalCard,
+                SectionComponent: GridSection,
+                label: "Goals",
+              },
+            }}
+          />
+        )}
+        {!hideFlow && (
+          <Questionnaire
+            data={buildGsQuestions(c_homeToGSQuestions)}
+          ></Questionnaire>
+        )}
       </div>
     </PageLayout>
   );

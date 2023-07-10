@@ -15,20 +15,12 @@ const Questionnaire = (props: any) => {
   };
 
   const handleSubmit = (data) => {
-    console.log(data);
-
+    console.log(JSON.stringify(data["What are your goals?"]));
     const extractedValues = Object.values(data);
     const extractedString = extractedValues.join(",");
     const queryString = extractedString.split(",");
-
-    const url = `/home-page?query=${queryString
-      .toString()
-      .replaceAll(/\//g, "-")
-      .replaceAll(/ /g, "")}`;
-    console.log(url);
-
+    const url = `/home-page?query=${data["What are your goals?"]}&type=guided`;
     window.location.href = url;
-    // window.location.href = `/home-page?${JSON.stringify(extractedString.split(",").join(" &"))}
   };
 
   const handleNextStep = () => {

@@ -25,6 +25,7 @@ import { Image } from "@yext/pages/components";
 import { useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import RTF from "../components/RTF";
+import Schema from "../components/ProductSchema";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -125,6 +126,7 @@ const Location: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
+  const cpy = document;
   const {
     _site,
     name,
@@ -145,6 +147,7 @@ const Location: Template<TemplateRenderProps> = ({
 
   return (
     <>
+      <Schema document={cpy}></Schema>
       <PageLayout _site={_site}>
         <div className="centered-container">
           <div className="section">
