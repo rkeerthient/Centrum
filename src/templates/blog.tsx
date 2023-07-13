@@ -125,7 +125,6 @@ const SingleBlog: Template<TemplateRenderProps> = ({
     body,
     datePosted,
   } = document;
-  console.log(slug);
 
   return (
     <>
