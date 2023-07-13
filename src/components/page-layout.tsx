@@ -11,7 +11,6 @@ import {
   HeadlessConfig,
 } from "@yext/chat-headless-react";
 import { ChatPanel } from "@yext/chat-ui-react";
-import "@yext/chat-ui-react/bundle.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { BsFillChatFill } from "react-icons/bs";
