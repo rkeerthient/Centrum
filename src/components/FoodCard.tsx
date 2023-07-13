@@ -11,11 +11,11 @@ const FoodCard = (props: CardProps<any>): JSX.Element => {
   const { primaryPhoto, c_nutritionToFood } = result.rawData;
 
   return (
-    <div className="w-full  p-4 my-4 ">
+    <div className="w-full my-4 border">
       <div className=" space-y-4 text-center mx-auto">
         <Image image={primaryPhoto} className="h-60"></Image>
         <div className="text-xl">{name}</div>
-        <div className="space-y-2">
+        <div className="space-y-2 px-4 pb-4">
           <div className="font-semibold text-left">Nutrients</div>
           <div className="flex w-auto gap-4 flex-wrap ">
             {c_nutritionToFood &&

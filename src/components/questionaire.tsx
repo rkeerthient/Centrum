@@ -51,12 +51,12 @@ const Questionnaire = (props) => {
           {options.map((option) => (
             <label
               key={option}
-              className={` items-center mt-2 flex border-2 font-semibold rounded-md align-center text-black mx-4 bg-transparent justify-between ${
+              className={`hover:cursor-pointer items-center mt-2 flex border-2 font-semibold rounded-md align-center text-black mx-4 bg-transparent justify-between ${
                 answers[header] &&
                 answers[header][question] === option &&
                 "border-[#e3005d] border-2 bg-[#ffebf3]"
               }`}
-              style={{ maxWidth: "250px", minWidth: "130px" }} //
+              style={{ maxWidth: "250px", minWidth: "130px" }}
             >
               <input
                 type="radio"

@@ -7,9 +7,9 @@ const GoalCard = (props: CardProps<any>): JSX.Element => {
   const { c_nutrients } = result.rawData;
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full space-y-4 border p-8 ">
       <div className="font-bold">{name}</div>
-      <div className="flex w-auto gap-4 flex-wrap ">
+      <div className="flex w-auto gap-4 flex-wrap">
         {c_nutrients &&
           c_nutrients.map((item: any, index: any) => (
             <div
