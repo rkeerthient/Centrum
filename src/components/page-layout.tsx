@@ -22,6 +22,9 @@ type Props = {
 
 const searcher = provideHeadless({ ...searchConfig });
 const botConfig: HeadlessConfig = {
+  analyticsConfig: {
+    sessionTrackingEnabled: false,
+  },
   apiKey: import.meta.env.YEXT_PUBLIC_BOT_API_KEY,
   botId: import.meta.env.YEXT_PUBLIC_BOT_ID,
 };
@@ -49,7 +52,7 @@ const PageLayout = ({ _site, children }: Props) => {
         </div>
       </div>
       <div className="my-8 fixed bottom-10 right-10 z-50">
-        {/* {show_bot ? (
+        {show_bot ? (
           <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
               customCssClasses={{
@@ -67,7 +70,7 @@ const PageLayout = ({ _site, children }: Props) => {
             color="#e3005d"
             onClick={() => setShow_bot(true)}
           />
-        )} */}
+        )}
       </div>
     </SearchHeadlessProvider>
   );
