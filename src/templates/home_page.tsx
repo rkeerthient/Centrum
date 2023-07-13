@@ -127,6 +127,7 @@ const Location: Template<TemplateRenderProps> = ({
 }) => {
   const { _site, name, c_homeToGSQuestions } = document;
   const [hideFlow, setHideFlow] = useState(false);
+  const [show, setShow] = useState(false);
   console.log(hideFlow);
 
   useEffect(() => {
@@ -135,41 +136,78 @@ const Location: Template<TemplateRenderProps> = ({
   });
   return (
     <PageLayout _site={_site}>
-      <div className="w-3/4 mx-auto bg-white p-4  ">
-        {hideFlow && (
-          <UniversalResults
-            customCssClasses={{ universalResultsContainer: "w-full" }}
-            verticalConfigMap={{
-              faqs: {
-                CardComponent: FAQCard,
-                viewAllButton: true,
-              },
-              food: {
-                CardComponent: FoodCard,
-                SectionComponent: GridSection,
-                viewAllButton: true,
-              },
-              formulae: {
-                CardComponent: FormulaCard,
-                SectionComponent: GridSection,
-                viewAllButton: true,
-              },
-              nutrition: {
-                CardComponent: NutritionCard,
-                viewAllButton: true,
-              },
-              goals: {
-                CardComponent: GoalCard,
-                SectionComponent: GridSection,
-                label: "Goals",
-              },
-            }}
-          />
-        )}
-        {!hideFlow && (
-          <Questionnaire
-            data={buildGsQuestions(c_homeToGSQuestions)}
-          ></Questionnaire>
+      <div className=" ">
+        <div className=" p-4 ">
+          {hideFlow && (
+            <UniversalResults
+              customCssClasses={{ universalResultsContainer: "w-full" }}
+              verticalConfigMap={{
+                faqs: {
+                  CardComponent: FAQCard,
+                  viewAllButton: true,
+                },
+                food: {
+                  CardComponent: FoodCard,
+                  SectionComponent: GridSection,
+                  viewAllButton: true,
+                },
+                formulae: {
+                  CardComponent: FormulaCard,
+                  SectionComponent: GridSection,
+                  viewAllButton: true,
+                },
+                nutrition: {
+                  CardComponent: NutritionCard,
+                  viewAllButton: true,
+                },
+                goals: {
+                  CardComponent: GoalCard,
+                  SectionComponent: GridSection,
+                  label: "Goals",
+                },
+              }}
+            />
+          )}
+          <div className="  p-4 ">
+            {!show && (
+              <div className="px-8 flex flex-row justify-between items-center">
+                <div className="flex flex-col p-8">
+                  <div className="text-4xl font-bold">
+                    Customized Wellness Companion
+                  </div>
+                  <div className="mt-8 text-2xl text-gray-500">
+                    Let’s get to know you and your health goals. We’ll use your
+                    answers to tailor your supplements, foods, and recipe
+                    recommendations.
+                  </div>
+                  <div
+                    className="rounded-full bg-[#e3005d] px-8 py-2 mt-8 w-fit text-xl font-bold text-white"
+                    onClick={() => setShow(true)}
+                  >
+                    Take your quiz
+                  </div>
+                </div>
+                <img
+                  src="https://wholebycentrum.com/static/media/hero-desktop.8069c7d63b4168b163a9.png"
+                  style={{ height: "500px" }}
+                />
+              </div>
+            )}
+            {show && (
+              <Questionnaire data={buildGsQuestions(c_homeToGSQuestions)} />
+            )}
+          </div>
+        </div>
+        {!show && (
+          <>
+            <img src="https://i.imgur.com/rYmRQhQ.png" />
+            <img
+              src="https://i.imgur.com/Vn1va9n.png"
+              className="bg-white my-24"
+            />
+            <img src="https://i.imgur.com/TjAehYX.png" />
+            <img src="https://i.imgur.com/7OYbOfu.png" />
+          </>
         )}
       </div>
     </PageLayout>
