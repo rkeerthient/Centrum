@@ -12,8 +12,6 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
-import FAQsPage from "../Pages/FAQsPage";
-import FormulaePage from "../Pages/FormulaePage";
 import FoodPage from "../Pages/FoodPage";
 
 export const config: TemplateConfig = {

@@ -12,7 +12,6 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
-import FAQsPage from "../Pages/FAQsPage";
 import FormulaePage from "../Pages/FormulaePage";
 
 export const config: TemplateConfig = {
@@ -26,13 +25,13 @@ export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
   return {
-    title: "Centrum | FAQs",
+    title: "Centrum | Formulas",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
 };
 
-const FAQsWrapper: Template<TemplateRenderProps> = ({
+const FormulaeWrapper: Template<TemplateRenderProps> = ({
   document,
 }: TemplateRenderProps) => {
   const { _site } = document;
@@ -47,4 +46,4 @@ const FAQsWrapper: Template<TemplateRenderProps> = ({
     </>
   );
 };
-export default FAQsWrapper;
+export default FormulaeWrapper;

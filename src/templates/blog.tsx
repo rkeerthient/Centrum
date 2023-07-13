@@ -22,23 +22,19 @@ import * as React from "react";
 import PageLayout from "../components/page-layout";
 import "../index.css";
 import { Image } from "@yext/pages/components";
-import Schema from "../components/ProductSchema";
 
 /**
  * Required when Knowledge Graph data is used for a template.
  */
 export const config: TemplateConfig = {
   stream: {
-    $id: "blogs",
-    // Specifies the exact data that each generated document will contain. This data is passed in
-    // directly as props to the default exported function.
+    $id: "blog-stream",
     fields: [
       "id",
       "uid",
       "meta",
       "name",
       "primaryPhoto",
-      "landingPageUrl",
       "description",
       "body",
       "c_author",
@@ -122,16 +118,8 @@ const Blog: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const cpy = document;
-  const {
-    _site,
-    c_author,
-    name,
-    description,
-    primaryPhoto,
-    landingPageUrl,
-    body,
-    datePosted,
-  } = document;
+  const { _site, c_author, name, description, primaryPhoto, body, datePosted } =
+    document;
 
   return (
     <>
