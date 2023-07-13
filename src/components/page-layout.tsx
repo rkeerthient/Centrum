@@ -6,6 +6,7 @@ import {
   provideHeadless,
 } from "@yext/search-headless-react";
 import searchConfig from "./searchConfig";
+import { ChatBot } from "./Chatbot";
 // import Ce_site from "../types/site";
 // import { ChatBot } from "./Chatbot";
 
@@ -27,9 +28,11 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-      {/* <div className="fixed bottom-10 right-10 z-50">
-        <ChatBot configId={import.meta.env.YEXT_PUBLIC_BOT_ID} />
-      </div> */}
+      {import.meta.env.YEXT_PUBLIC_BOT_ID !== "" && (
+        <div className="fixed bottom-10 right-10 z-50">
+          <ChatBot configId={import.meta.env.YEXT_PUBLIC_BOT_ID} />
+        </div>
+      )}
     </SearchHeadlessProvider>
   );
 };
