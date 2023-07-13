@@ -55,8 +55,8 @@ export const config: TemplateConfig = {
   },
 };
 
-export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return `index`;
+export const getPath: GetPath<TemplateRenderProps> = () => {
+  return `index.html`;
 };
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
