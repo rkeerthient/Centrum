@@ -17,11 +17,11 @@
           },
           {
             "root": "dist",
-            "pattern": "assets/{server,static,renderer,render}/**/*{.js,.css}"
+            "pattern": "assets/{server,static,renderer}/**/*{.js,.css}"
           }
         ],
         "event": "ON_PAGE_GENERATE",
-        "functionName": "Generator"
+        "functionName": "Generate"
       }
     ]
   },
