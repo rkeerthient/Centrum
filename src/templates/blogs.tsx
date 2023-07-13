@@ -12,48 +12,38 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
-import FAQsPage from "../Pages/FAQsPage";
-import { useState } from "react";
+import BlogPage from "../Pages/BlogPage";
 
 export const config: TemplateConfig = {
-  name: "faqs",
+  name: "blogs",
 };
 export const getPath: GetPath<TemplateRenderProps> = () => {
-  return `faqs`;
+  return `blogs`;
 };
 
 export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
   return {
-    title: "Centrum | FAQs",
+    title: "Centrum | Blogs",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
 };
 
-const FAQsWrapper: Template<TemplateRenderProps> = ({
+const BlogWrapper: Template<TemplateRenderProps> = ({
   document,
 }: TemplateRenderProps) => {
   const { _site } = document;
-  const [schemaData, setSchemaData] = useState();
-  const handleDataFromChild = (data: any) => {
-    setSchemaData(data);
-  };
+
   return (
     <>
-      {schemaData && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
-      )}
       <PageLayout _site={_site}>
         <div className="centered-container">
-          <FAQsPage sendDataToParent={handleDataFromChild} />
+          <BlogPage />
         </div>
       </PageLayout>
     </>
   );
 };
-export default FAQsWrapper;
+export default BlogWrapper;

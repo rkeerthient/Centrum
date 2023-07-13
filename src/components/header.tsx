@@ -29,6 +29,10 @@ const links: Link[] = [
     label: "Foods",
     url: "/foods",
   },
+  {
+    label: "Blogs",
+    url: "/blogs",
+  },
 ];
 
 const Header = ({ _site }: any) => {
