@@ -31,7 +31,7 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-const FoodWrapper: Template<TemplateRenderProps> = ({
+const BlogsWrapper: Template<TemplateRenderProps> = ({
   document,
 }: TemplateRenderProps) => {
   const { _site } = document;
@@ -46,4 +46,4 @@ const FoodWrapper: Template<TemplateRenderProps> = ({
     </>
   );
 };
-export default FoodWrapper;
+export default BlogsWrapper;

@@ -117,7 +117,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * components any way you'd like as long as it lives in the src folder (though you should not put
  * them in the src/templates folder as this is specific for true template files).
  */
-const Location: Template<TemplateRenderProps> = ({
+const SingleFormula: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
@@ -255,4 +255,4 @@ const Location: Template<TemplateRenderProps> = ({
   );
 };
 
-export default Location;
+export default SingleFormula;

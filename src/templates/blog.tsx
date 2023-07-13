@@ -110,7 +110,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * components any way you'd like as long as it lives in the src folder (though you should not put
  * them in the src/templates folder as this is specific for true template files).
  */
-const Blog: Template<TemplateRenderProps> = ({
+const SingleBlog: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
@@ -154,4 +154,4 @@ const Blog: Template<TemplateRenderProps> = ({
   );
 };
 
-export default Blog;
+export default SingleBlog;
