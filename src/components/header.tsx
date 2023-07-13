@@ -69,7 +69,7 @@ const Header = ({ _site }: any) => {
   }, []);
   return (
     <>
-      <div className="px-12">
+      <div className="px-12 bg-white">
         <div className="flex justify-between items-center gap-12">
           <nav className="py-6 flex items-center justify-start gap-4 w-1/3">
             <div className="flex gap-x-10  font-semibold  text-sm">
