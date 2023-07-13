@@ -8,17 +8,35 @@ import {
 import searchConfig from "./searchConfig";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import {
+  ChatHeadlessProvider,
+  HeadlessConfig,
+} from "@yext/chat-headless-react";
+import { ChatPanel } from "@yext/chat-ui-react";
+import { IoChatbubblesSharp } from "react-icons/io5";
+
 type Props = {
   _site?: any;
   children?: React.ReactNode;
 };
+
 const searcher = provideHeadless({ ...searchConfig });
-// const config: HeadlessConfig = {
-//   apiKey: "306ce71c1cb641af06555d32b4f54412",
-//   botId: "nutrition-guide",
-// };
+const botConfig: HeadlessConfig = {
+  apiKey: "306ce71c1cb641af06555d32b4f54412",
+  botId: "nutrition-guide",
+};
 const PageLayout = ({ _site, children }: Props) => {
   const [show_bot, setShow_bot] = useState(false);
+  const headConfig = (title: string) => {
+    return (
+      <>
+        <div className="bg-[#e3005d] flex justify-between items-center text-white font-bold p-2 rounded-t-2xl">
+          <div>{title}</div>
+          <AiOutlineClose onClick={() => setShow_bot(false)} />
+        </div>
+      </>
+    );
+  };
   return (
     <SearchHeadlessProvider searcher={searcher}>
       <div className="bg-[#f6f6f6]">
@@ -30,14 +48,14 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-      {/* <div className="my-8 fixed bottom-10 right-10 z-50">
+      <div className="my-8 fixed bottom-10 right-10 z-50">
         {show_bot ? (
-          <ChatHeadlessProvider config={config}>
+          <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
               customCssClasses={{
                 container: "border h-[500px] w-[400px] rounded-t-2xl",
               }}
-              header={header("Nutrition Bot")}
+              header={headConfig("Nutrition bot")}
             />
           </ChatHeadlessProvider>
         ) : (
@@ -47,7 +65,7 @@ const PageLayout = ({ _site, children }: Props) => {
             onClick={() => setShow_bot(true)}
           />
         )}
-      </div> */}
+      </div>
     </SearchHeadlessProvider>
   );
 };

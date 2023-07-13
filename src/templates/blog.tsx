@@ -34,6 +34,7 @@ export const config: TemplateConfig = {
       "uid",
       "meta",
       "name",
+      "slug",
       "primaryPhoto",
       "description",
       "body",
@@ -113,9 +114,16 @@ const Blog: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-  const cpy = document;
-  const { _site, c_author, name, description, primaryPhoto, body, datePosted } =
-    document;
+  const {
+    _site,
+    slug,
+    c_author,
+    name,
+    description,
+    primaryPhoto,
+    body,
+    datePosted,
+  } = document;
 
   return (
     <>
