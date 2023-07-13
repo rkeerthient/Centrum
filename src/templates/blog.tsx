@@ -22,6 +22,7 @@ import * as React from "react";
 import PageLayout from "../components/page-layout";
 import "../index.css";
 import { Image } from "@yext/pages/components";
+import RTF from "../components/RTF";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -124,23 +125,28 @@ const Blog: Template<TemplateRenderProps> = ({
     body,
     datePosted,
   } = document;
+  console.log(slug);
 
   return (
     <>
       <PageLayout _site={_site}>
         <div className="centered-container">
           <div className="section">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-              <div className="space-y-4">
-                <div className="text-gray-600">{datePosted}</div>
+            <div className="flex items-center justify-between">
+              <div className="space-y-4 w-1/2">
                 <h1 className="text-4xl font-bold">{name}</h1>
-                <div className="text-gray-600">{c_author}</div>
+                <div className="text-gray-600">
+                  Posted by {c_author} on {datePosted}
+                </div>
+                <div>{description}</div>
               </div>
-              <div>
+              <div className="w-2/5">
                 <Image image={primaryPhoto}></Image>
               </div>
             </div>
-            <div className="p-8">{body}</div>
+            <div className="p-8">
+              <RTF>{body}</RTF>
+            </div>
           </div>
         </div>
       </PageLayout>
