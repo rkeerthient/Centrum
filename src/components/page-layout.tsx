@@ -12,7 +12,7 @@ import {
   ChatHeadlessProvider,
   HeadlessConfig,
 } from "@yext/chat-headless-react";
-import { ChatPanel } from "@yext/chat-ui-react";
+import { ChatHeader, ChatPanel } from "@yext/chat-ui-react";
 import { IoChatbubblesSharp } from "react-icons/io5";
 
 type Props = {
@@ -48,14 +48,17 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-      <div className="my-8 fixed bottom-10 right-10 z-50">
+      {/* <div className="my-8 fixed bottom-10 right-10 z-50">
         {show_bot ? (
           <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
               customCssClasses={{
                 container: "border h-[500px] w-[400px] rounded-t-2xl",
               }}
-              header={headConfig("Nutrition bot")}
+              // header={headConfig("Nutrition bot")}
+              header={
+                <ChatHeader title="Clippy's Chatbot" showRestartButton={true} />
+              }
             />
           </ChatHeadlessProvider>
         ) : (
@@ -65,7 +68,7 @@ const PageLayout = ({ _site, children }: Props) => {
             onClick={() => setShow_bot(true)}
           />
         )}
-      </div>
+      </div> */}
     </SearchHeadlessProvider>
   );
 };
