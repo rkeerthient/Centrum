@@ -1,8 +1,5 @@
 import { CardProps } from "@yext/search-ui-react";
 import * as React from "react";
-import { useState } from "react";
-import RTF from "./RTF";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Image } from "@yext/pages/components";
 
 const BlogCard = (props: CardProps<any>): JSX.Element => {
