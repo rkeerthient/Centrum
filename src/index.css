@@ -94,3 +94,7 @@
 .slick-slider .slick-slide {
   padding: 0 15px;
 }
+
+.yext-chat-input__send-button {
+  @apply bg-[#e3005d];
+}
