@@ -22,8 +22,8 @@ type Props = {
 
 const searcher = provideHeadless({ ...searchConfig });
 const botConfig: HeadlessConfig = {
-  apiKey: "306ce71c1cb641af06555d32b4f54412",
-  botId: "nutrition-guide",
+  apiKey: import.meta.env.YEXT_PUBLIC_BOT_API_KEY,
+  botId: import.meta.env.YEXT_PUBLIC_BOT_ID,
 };
 const PageLayout = ({ _site, children }: Props) => {
   const [show_bot, setShow_bot] = useState(false);
@@ -48,7 +48,7 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-      {/* <div className="my-8 fixed bottom-10 right-10 z-50">
+      <div className="my-8 fixed bottom-10 right-10 z-50">
         {show_bot ? (
           <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
@@ -68,7 +68,7 @@ const PageLayout = ({ _site, children }: Props) => {
             onClick={() => setShow_bot(true)}
           />
         )}
-      </div> */}
+      </div>
     </SearchHeadlessProvider>
   );
 };
