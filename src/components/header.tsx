@@ -53,10 +53,7 @@ const Header = ({ _site }: any) => {
     const queryParams = new URLSearchParams(window.location.search);
     state
       ? (searchActions.setVertical(state), searchActions.executeVerticalQuery())
-      : (searchActions.setUniversal(),
-        searchActions.executeUniversalQuery().then((res) => {
-          console.log(JSON.stringify(res));
-        }));
+      : (searchActions.setUniversal(), searchActions.executeUniversalQuery());
   };
 
   useEffect(() => {

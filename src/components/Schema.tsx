@@ -26,8 +26,7 @@ const Schema = (props: any) => {
   if (document.c_entityCollection) {
     document.c_entityCollection.forEach((item1: any, index: any) => {
       item1.c_products.forEach((item: Product, index: any) => {
-        console.log(JSON.stringify(item));
-
+ 
         productsList.push({
           "@type": "ListItem",
           position: parseInt(index) + 1,
@@ -54,8 +53,7 @@ const Schema = (props: any) => {
       });
     });
   }
-  console.log(JSON.stringify(productsList));
-
+ 
   return (
     <>
       <JsonLd<ClothingStore>

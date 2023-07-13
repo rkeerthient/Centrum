@@ -9,8 +9,7 @@ const Questionnaire = (props) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const data = props.data;
-  console.log(JSON.stringify(props));
-
+ 
   const handleAnswer = (header, question, answer) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,

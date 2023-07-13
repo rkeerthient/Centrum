@@ -4,8 +4,7 @@ import { ItemList, Product } from "schema-dts";
 
 const Schema = (props: any) => {
   const { document } = props;
-  console.log(JSON.stringify(document.meta.entityType.uid));
-
+ 
   const itemListElement: any = [];
   if (document.c_supplementFacts) {
     document.c_supplementFacts.map((item: any, index: any) => {
@@ -13,8 +12,7 @@ const Schema = (props: any) => {
       itemListElement.push(name);
     });
   }
-  console.log(JSON.stringify(itemListElement));
-
+ 
   return (
     <>
       <JsonLd<Product>

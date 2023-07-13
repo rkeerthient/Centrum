@@ -81,7 +81,7 @@ const home = ({ document }: any) => {
       <div className="py-4">
         {!query && !show && (
           <>
-            <div className=" flex flex-row justify-between items-center max-w-screen-2xl mx-auto ">
+            <div className=" flex flex-row justify-between items-center max-w-screen-2xl mx-auto px-8 md:px-none">
               <div className="flex flex-col p-8">
                 <div className="text-4xl font-bold">
                   Customized Wellness Companion

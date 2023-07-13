@@ -9,8 +9,7 @@ const FormulaCard = (props: CardProps<any>): JSX.Element => {
   const { result } = props;
   const { name } = result;
   const { primaryPhoto, slug } = result.rawData;
-  console.log(JSON.stringify(result));
-
+ 
   return (
     <div className="w-full p-4 my-4 border">
       <div className="space-y-8 text-center mx-auto">

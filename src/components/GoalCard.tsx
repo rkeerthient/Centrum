@@ -1,8 +1,7 @@
 import { CardProps } from "@yext/search-ui-react";
 import * as React from "react";
 const GoalCard = (props: CardProps<any>): JSX.Element => {
-  console.log(JSON.stringify(props));
-  const { result } = props;
+   const { result } = props;
   const { name } = result;
   const { c_nutrients } = result.rawData;
 

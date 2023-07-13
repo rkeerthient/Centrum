@@ -143,7 +143,6 @@ const Location: Template<TemplateRenderProps> = ({
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
-  console.log(JSON.stringify(c_nutrients));
 
   return (
     <>
