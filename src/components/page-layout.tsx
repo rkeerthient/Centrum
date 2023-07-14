@@ -14,7 +14,7 @@ import {
 } from "@yext/chat-headless-react";
 import { ChatHeader, ChatPanel } from "@yext/chat-ui-react";
 import { IoChatbubblesSharp } from "react-icons/io5";
-import "@yext/chat-ui-react/bundle.css";
+// import "@yext/chat-ui-react/bundle.css";
 
 type Props = {
   _site?: any;
@@ -23,9 +23,6 @@ type Props = {
 
 const searcher = provideHeadless({ ...searchConfig });
 const botConfig: HeadlessConfig = {
-  analyticsConfig: {
-    sessionTrackingEnabled: false,
-  },
   apiKey: import.meta.env.YEXT_PUBLIC_BOT_API_KEY,
   botId: import.meta.env.YEXT_PUBLIC_BOT_ID,
 };
@@ -54,25 +51,29 @@ const PageLayout = ({ _site, children }: Props) => {
       </div>
       <div className="my-8 fixed bottom-10 right-10 z-50 h-[500px] w-[400px] rounded-t-2xl">
         {show_bot ? (
+          // <ChatHeadlessProvider config={botConfig}>
+          //   <ChatPanel
+          //     customCssClasses={{
+          //       container: "border h-[500px] w-[400px] rounded-t-2xl",
+          //       inputContainer: " flex justify-between items-center",
+          //       messagesScrollContainer: "scroll",
+          //     }}
+          //     // header={headConfig("Nutrition bot")}
+          //     showFeedbackButtons={false}
+          //     header={
+          //       <ChatHeader
+          //         title="Clippy's Chatbot"
+          //         showRestartButton={true}
+          //         customCssClasses={{
+          //           title: "text-white font-bold",
+          //           container: "bg-[#e3005d] p-2 rounded-t-2xl",
+          //         }}
+          //       />
+          //     }
+          //   />
+          // </ChatHeadlessProvider>
           <ChatHeadlessProvider config={botConfig}>
-            <ChatPanel
-              // customCssClasses={{
-              //   container: "border h-[500px] w-[400px] rounded-t-2xl",
-              //   inputContainer: " flex justify-between items-center",
-              //   messagesScrollContainer: "scroll",
-              // }}
-              header={headConfig("Nutrition bot")}
-              // header={
-              //   <ChatHeader
-              //     title="Clippy's Chatbot"
-              //     showRestartButton={true}
-              //     customCssClasses={{
-              //       title: "text-white font-bold",
-              //       container: "bg-[#e3005d] p-2 rounded-t-2xl",
-              //     }}
-              //   />
-              // }
-            />
+            <ChatPanel />
           </ChatHeadlessProvider>
         ) : (
           <IoChatbubblesSharp
