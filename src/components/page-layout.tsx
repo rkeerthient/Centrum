@@ -12,7 +12,7 @@ import {
   ChatHeadlessProvider,
   HeadlessConfig,
 } from "@yext/chat-headless-react";
-import { ChatHeader, ChatPanel } from "@yext/chat-ui-react";
+import { ChatHeader, ChatPanel, ChatPopUp } from "@yext/chat-ui-react";
 import { IoChatbubblesSharp } from "react-icons/io5";
 // import "@yext/chat-ui-react/bundle.css";
 
@@ -49,49 +49,27 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-      <div className="my-8 fixed bottom-10 right-10 z-50 h-[500px] w-[400px] rounded-t-2xl">
-        {show_bot ? (
-          // <ChatHeadlessProvider config={botConfig}>
-          //   <ChatPanel
-          //     customCssClasses={{
-          //       container: "border h-[500px] w-[400px] rounded-t-2xl",
-          //       inputContainer: " flex justify-between items-center",
-          //       messagesScrollContainer: "scroll",
-          //     }}
-          //     // header={headConfig("Nutrition bot")}
-          //     showFeedbackButtons={false}
-          //     header={
-          //       <ChatHeader
-          //         title="Clippy's Chatbot"
-          //         showRestartButton={true}
-          //         customCssClasses={{
-          //           title: "text-white font-bold",
-          //           container: "bg-[#e3005d] p-2 rounded-t-2xl",
-          //         }}
-          //       />
-          //     }
-          //   />
-          // </ChatHeadlessProvider>
-          <ChatHeadlessProvider config={botConfig}>
-            <ChatPanel
-              customCssClasses={{
-                inputCssClasses: {
-                  sendButton:
-                    "bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700",
-                  textArea:
-                    "border border-gray-300 focus:ring-sky-500 focus:border-sky-500 text-base",
-                },
-              }}
-            />
-          </ChatHeadlessProvider>
-        ) : (
-          <IoChatbubblesSharp
-            className="float-right text-5xl font-light"
-            color="#e3005d"
-            onClick={() => setShow_bot(true)}
-          />
-        )}
-      </div>
+
+      <ChatHeadlessProvider config={botConfig}>
+        <ChatPopUp
+          title="Nutrition bot"
+          customCssClasses={{
+            buttonIcon: "bg-[#e3005d] text-white",
+            button: "!bg-none !transition-none bg-[#e3005d]",
+            panelCssClasses: {
+              inputCssClasses: {
+                sendButton: "bg-[#e3005d]",
+                textArea:
+                  "border border-gray-300 focus:ring-sky-500 focus:border-sky-500 text-base",
+              },
+            },
+            headerCssClasses: {
+              container: "!bg-none !bg-[#e3005d] !transition-none	",
+              title: "overflow-hidden",
+            },
+          }}
+        />
+      </ChatHeadlessProvider>
     </SearchHeadlessProvider>
   );
 };
