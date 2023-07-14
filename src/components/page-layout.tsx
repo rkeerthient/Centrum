@@ -73,7 +73,16 @@ const PageLayout = ({ _site, children }: Props) => {
           //   />
           // </ChatHeadlessProvider>
           <ChatHeadlessProvider config={botConfig}>
-            <ChatPanel />
+            <ChatPanel
+              customCssClasses={{
+                inputCssClasses: {
+                  sendButton:
+                    "bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700",
+                  textArea:
+                    "border border-gray-300 focus:ring-sky-500 focus:border-sky-500 text-base",
+                },
+              }}
+            />
           </ChatHeadlessProvider>
         ) : (
           <IoChatbubblesSharp
