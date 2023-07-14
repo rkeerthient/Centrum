@@ -58,17 +58,17 @@ const PageLayout = ({ _site, children }: Props) => {
               customCssClasses={{
                 container: "border h-[500px] w-[400px] rounded-t-2xl",
               }}
-              header={headConfig("Nutrition bot")}
-              // header={
-              //   <ChatHeader
-              //     title="Clippy's Chatbot"
-              //     showRestartButton={true}
-              //     customCssClasses={{
-              //       title: "text-white font-bold",
-              //       container: "bg-[#e3005d] p-2 rounded-t-2xl",
-              //     }}
-              //   />
-              // }
+              // header={headConfig("Nutrition bot")}
+              header={
+                <ChatHeader
+                  title="Clippy's Chatbot"
+                  showRestartButton={true}
+                  customCssClasses={{
+                    title: "text-white font-bold",
+                    container: "bg-[#e3005d] p-2 rounded-t-2xl",
+                  }}
+                />
+              }
             />
           </ChatHeadlessProvider>
         ) : (
