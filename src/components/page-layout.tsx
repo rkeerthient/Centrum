@@ -55,21 +55,13 @@ const PageLayout = ({ _site, children }: Props) => {
         {show_bot ? (
           <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
-            // customCssClasses={{
-            //   container: "border h-[500px] w-[400px] rounded-t-2xl",
-            //   inputContainer: " flex justify-between items-center",
-            // }}
-            // header={headConfig("Nutrition bot")}
-            // header={
-            //   <ChatHeader
-            //     title="Clippy's Chatbot"
-            //     showRestartButton={true}
-            //     customCssClasses={{
-            //       title: "text-white font-bold",
-            //       container: "bg-[#e3005d] p-2 rounded-t-2xl",
-            //     }}
-            //   />
-            // }
+              customCssClasses={{
+                container: "border h-[500px] w-[400px] rounded-t-2xl",
+              }}
+              // header={headConfig("Nutrition bot")}
+              header={
+                <ChatHeader title="Clippy's Chatbot" showRestartButton={true} />
+              }
             />
           </ChatHeadlessProvider>
         ) : (
