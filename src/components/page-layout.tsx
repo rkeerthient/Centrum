@@ -57,6 +57,7 @@ const PageLayout = ({ _site, children }: Props) => {
             <ChatPanel
               customCssClasses={{
                 container: "border h-[500px] w-[400px] rounded-t-2xl",
+                inputContainer: " flex justify-between items-center",
               }}
               // header={headConfig("Nutrition bot")}
               header={
