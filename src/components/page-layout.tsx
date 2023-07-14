@@ -52,7 +52,7 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-      <div className="my-8 fixed bottom-10 right-10 z-50">
+      <div className="my-8 fixed bottom-10 right-10 z-50 h-[500px] w-[400px] rounded-t-2xl">
         {show_bot ? (
           <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
