@@ -14,6 +14,7 @@ import {
 } from "@yext/chat-headless-react";
 import { ChatHeader, ChatPanel } from "@yext/chat-ui-react";
 import { IoChatbubblesSharp } from "react-icons/io5";
+import "@yext/chat-ui-react/bundle.css";
 
 type Props = {
   _site?: any;
@@ -55,10 +56,11 @@ const PageLayout = ({ _site, children }: Props) => {
         {show_bot ? (
           <ChatHeadlessProvider config={botConfig}>
             <ChatPanel
-              customCssClasses={{
-                container: "border h-[500px] w-[400px] rounded-t-2xl",
-                inputContainer: " flex justify-between items-center",
-              }}
+              // customCssClasses={{
+              //   container: "border h-[500px] w-[400px] rounded-t-2xl",
+              //   inputContainer: " flex justify-between items-center",
+              //   messagesScrollContainer: "scroll",
+              // }}
               header={headConfig("Nutrition bot")}
               // header={
               //   <ChatHeader
