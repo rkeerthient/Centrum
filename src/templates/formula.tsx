@@ -26,6 +26,7 @@ import { useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import RTF from "../components/RTF";
 import Schema from "../components/ProductSchema";
+import Reviews from "../components/Reviews";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -250,6 +251,7 @@ const SingleFormula: Template<TemplateRenderProps> = ({
             )}
           </div>
         </div>
+        <Reviews />
       </PageLayout>
     </>
   );
