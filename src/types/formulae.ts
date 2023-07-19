@@ -37,7 +37,7 @@ export default interface Ce_formulae {
 	description?: string,
 	name: string,
 	c_directions?: string,
-	c_nutrients?: EntityReference[],
+	c_nutrientsToFormulae?: EntityReference[],
 	c_otherIngredients?: string,
 	c_supplementFacts?: C_supplementFacts[],
 	id: string,

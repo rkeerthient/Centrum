@@ -45,7 +45,7 @@ export const config: TemplateConfig = {
       "c_supplementFacts",
       "c_directions",
       "c_otherIngredients",
-      "c_nutrients",
+      "c_nutrientsToFormulae",
       "primaryPhoto",
       "landingPageUrl",
     ],
@@ -131,7 +131,7 @@ const SingleFormula: Template<TemplateRenderProps> = ({
     c_supplementFacts,
     c_directions,
     c_otherIngredients,
-    c_nutrients,
+    c_nutrientsToFormulae,
     primaryPhoto,
     landingPageUrl,
   } = document;
@@ -238,11 +238,11 @@ const SingleFormula: Template<TemplateRenderProps> = ({
                 )}
               </div>
             </div>
-            {c_nutrients && (
+            {c_nutrientsToFormulae && (
               <div className="flex flex-row gap-3">
                 <div className="text-xl font-bold">Nutrition Info</div>
                 <div className="flex flex-row gap-1">
-                  {c_nutrients.map((item: any, index: any) => (
+                  {c_nutrientsToFormulae.map((item: any, index: any) => (
                     <div key={index}>{item}</div>
                   ))}
                 </div>

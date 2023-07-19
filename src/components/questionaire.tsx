@@ -5,12 +5,45 @@ import {
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
 } from "react-icons/ai";
-const Questionnaire = (props) => {
+
+const Questionnaire = (props: any) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const data = props.data;
- 
+  const [answersString, setAnswersString] = useState<string>();
   const handleAnswer = (header, question, answer) => {
+    question ===
+      "Thinking about this last week - how often have you felt stressed?" &&
+      answer === "Always stressed" &&
+      setAnswersString(answersString + "," + "Stress levels");
+    question === "How often do you exercise during the week?" &&
+      answer === "4+ weekly" &&
+      setAnswersString(answersString + "," + "Extensive workout");
+    question ===
+      "How often do you eat protein-rich foods, including red meat, chicken, beans, etc.? Eat dairy" &&
+      answer === "Rarely/never" &&
+      setAnswersString(answersString + "," + "Rarely protein");
+    question ===
+      "How often do you eat dairy or dairy alternatives, like milk, yogurt, tofu, calcium-fortified orange juice, etc.?" &&
+      answer === "Rarely/never" &&
+      setAnswersString(answersString + "," + "Diary");
+    question === "How often do you eat fruits and veggies?" &&
+      answer === "Rarely/never" &&
+      setAnswersString(answersString + "," + "Fruits or vegetables");
+
+    question === "How many hours of sleep do you get on a typical night?" &&
+      answer === "<7" &&
+      setAnswersString(answersString + "," + "Trouble sleeping");
+    question === "What are your goals?" &&
+      setAnswersString(answersString + "," + answer);
+    question ===
+      "Can you tell us how often do you eat grains, like bread, pasta, rice, cereal, etc.?" &&
+      answer === "Rarely/never" &&
+      setAnswersString(answersString + "," + "Grains");
+
+    // answersString
+    //   ? setAnswersString(answersString + "," + answer)
+    //   : setAnswersString(answer);
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [header]: {
@@ -20,17 +53,19 @@ const Questionnaire = (props) => {
     }));
   };
 
-  const handleSubmit = (data) => {
-    const extractedValues = Object.values(data);
-    let goals = null;
-    for (let i = 0; i < extractedValues.length; i++) {
-      const obj = extractedValues[i];
-      if ("What are your goals?" in obj) {
-        goals = obj["What are your goals?"];
-        break;
-      }
-    }
-    const url = `/home-page?query=${goals}&type=guided`;
+  const handleSubmit = () => {
+    // const extractedValues = Object.values(data);
+    // console.log(answersString);
+
+    // let goals = null;
+    // for (let i = 0; i < extractedValues.length; i++) {
+    //   const obj = extractedValues[i];
+    //   if ("What are your goals?" in obj) {
+    //     goals = obj["What are your goals?"];
+    //     break;
+    //   }
+    // }
+    const url = `/home-page?query=${answersString}`;
     window.location.href = url;
   };
 
@@ -140,7 +175,7 @@ const Questionnaire = (props) => {
         )}
         {currentStep === data.questions.length - 1 && (
           <button
-            onClick={() => handleSubmit(answers)}
+            onClick={() => handleSubmit()}
             className="bg-[#e3005d] text-white px-4 py-2 rounded-full flex items-center"
           >
             Submit

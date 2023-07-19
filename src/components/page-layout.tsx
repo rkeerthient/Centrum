@@ -49,7 +49,7 @@ const PageLayout = ({ _site, children }: Props) => {
           <Footer _site={_site}></Footer>
         </div>
       </div>
-
+      {/* 
       <ChatHeadlessProvider config={botConfig}>
         <ChatPopUp
           title="Nutrition bot"
@@ -69,7 +69,7 @@ const PageLayout = ({ _site, children }: Props) => {
             },
           }}
         />
-      </ChatHeadlessProvider>
+      </ChatHeadlessProvider> */}
     </SearchHeadlessProvider>
   );
 };

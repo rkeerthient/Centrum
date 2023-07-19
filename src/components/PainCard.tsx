@@ -1,17 +1,16 @@
 import { CardProps } from "@yext/search-ui-react";
 import * as React from "react";
-const GoalCard = (props: CardProps<any>): JSX.Element => {
+const PainCard = (props: CardProps<any>): JSX.Element => {
   const { result } = props;
   const { name } = result;
-  const { c_nutrientsToGoal } = result.rawData;
-  console.log(JSON.stringify(props));
+  const { c_painToNutrition } = result.rawData;
 
   return (
     <div className="w-full space-y-4 border p-8 ">
       <div className="font-bold">{name}</div>
       <div className="flex w-auto gap-4 flex-wrap">
-        {c_nutrientsToGoal &&
-          c_nutrientsToGoal.map((item: any, index: any) => (
+        {c_painToNutrition &&
+          c_painToNutrition.map((item: any, index: any) => (
             <div
               className="border text-sm px-2 py-1 w-fit rounded-full border-red-300"
               key={index}
@@ -24,4 +23,4 @@ const GoalCard = (props: CardProps<any>): JSX.Element => {
   );
 };
 
-export default GoalCard;
+export default PainCard;

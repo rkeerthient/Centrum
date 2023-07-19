@@ -8,6 +8,7 @@ import Questionnaire from "./questionaire";
 import * as React from "react";
 import { useState } from "react";
 import { useSearchState } from "@yext/search-headless-react";
+import PainCard from "./PainCard";
 
 const home = ({ document }: any) => {
   const { c_homeToGSQuestions } = document;
@@ -69,6 +70,12 @@ const home = ({ document }: any) => {
                   label: "Goals",
                   viewAllButton: true,
                 },
+                pain: {
+                  CardComponent: PainCard,
+                  SectionComponent: GridSection,
+                  label: "Pains",
+                  viewAllButton: true,
+                },
               }}
             />
           ) : (
@@ -92,7 +99,7 @@ const home = ({ document }: any) => {
                   recommendations.
                 </div>
                 <div
-                  className="rounded-full bg-[#e3005d] hover:bg-black px-8 py-2 mt-8 w-fit text-xl font-bold text-white"
+                  className="rounded-full hover:cursor-pointer bg-[#e3005d] hover:bg-black px-8 py-2 mt-8 w-fit text-xl font-bold text-white"
                   onClick={() => setShow(true)}
                 >
                   Take your quiz
