@@ -3,9 +3,9 @@ export interface EntityReference {
 	name: string,
 }
 
-export default interface Ce_homePage {
-	slug?: string,
+export default interface Ce_pain {
 	name: string,
-	c_homeToGSQuestions?: EntityReference[],
+	c_painToNutrition?: EntityReference[],
+	keywords?: string[],
 	id: string,
 }

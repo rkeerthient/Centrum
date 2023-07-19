@@ -3,8 +3,8 @@ export interface EntityReference {
 	name: string,
 }
 
-export enum Q1Opt {
-	_18___24 = "18 - 24",
+export enum Q1Opts {
+	_18_24 = "18-24",
 	_25_34 = "25-34",
 	_35_44 = "35-44",
 	_45_54 = "45-54",
@@ -12,40 +12,42 @@ export enum Q1Opt {
 	_65_ = "65+",
 }
 
-export enum Q2Opt {
+export enum Q2Opts {
 	Male = "Male",
 	Female = "Female",
 	Others = "Others",
 }
 
 export interface C_q1 {
-	question?: string,
+	sectionHeader?: string,
 	question1?: string,
-	q1Opt?: Q1Opt,
+	q1Opts?: Q1Opts[],
 	question2?: string,
-	q2Opt?: Q2Opt,
+	q2Opts?: Q2Opts[],
 }
 
 export enum QOptions {
-	Energy = "Energy",
-	Sleep_Quality = "Sleep Quality",
-	Stress_Management = "Stress Management",
+	Energy = "Difficulty with concentration & focus",
+	Sleep_Quality = "Experiencing stress",
+	Stress_Management = "Have trouble falling asleep",
 	Mental_Focus = "Mental Focus",
 	Immunity = "Immunity",
+	Metabolism = "Metabolism",
 }
 
 export interface C_q2 {
 	question?: string,
+	sectionHeader?: string,
 	qOptions?: QOptions[],
 }
 
-export enum Q1Opts {
+export enum Q1Opts_1 {
 	_7 = "<7",
-	_7_to_9 = "7 to 9",
+	_7_9 = "7-9",
 	_9 = ">9",
 }
 
-export enum Q2Opts {
+export enum Q2Opts_1 {
 	Never_stressed = "Never stressed",
 	Occasionally_stressed = "Occasionally stressed",
 	Always_stressed = "Always stressed",
@@ -60,14 +62,14 @@ export enum Q3Opts {
 export interface C_q3 {
 	sectionHeader?: string,
 	question1?: string,
-	q1Opts?: Q1Opts,
+	q1Opts?: Q1Opts_1[],
 	question2?: string,
-	q2Opts?: Q2Opts,
+	q2Opts?: Q2Opts_1[],
 	question3?: string,
-	q3Opts?: Q3Opts,
+	q3Opts?: Q3Opts[],
 }
 
-export enum Q1Options {
+export enum Q1Opts_2 {
 	Rarely_never = "Rarely/never",
 	_1___2_daily = "1 - 2 daily",
 	_3__daily = "3+ daily",
@@ -76,7 +78,7 @@ export enum Q1Options {
 export interface C_q4 {
 	sectionHeader?: string,
 	question1?: string,
-	q1Options?: Q1Options,
+	q1Opts?: Q1Opts_2[],
 }
 
 export default interface Ce_guidedSearch {

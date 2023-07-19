@@ -24,24 +24,9 @@ export interface EntityReference {
 	name: string,
 }
 
-export interface C_supplementFacts {
-	name?: string,
-	amountPerServing?: string,
-	dailyValue?: string,
-}
-
-export default interface Ce_formulae {
-	landingPageUrl?: string,
+export default interface Ce_food {
 	primaryPhoto?: ComplexImage,
-	slug?: string,
-	description?: string,
 	name: string,
-	c_directions?: string,
-	c_goalToFormula?: EntityReference[],
-	c_nutrientsToGoal?: EntityReference[],
-	c_nutrientsName?: string[],
-	c_nutrientsToFormulae?: EntityReference[],
-	c_otherIngredients?: string,
-	c_supplementFacts?: C_supplementFacts[],
+	c_nutritionToFood?: EntityReference[],
 	id: string,
 }

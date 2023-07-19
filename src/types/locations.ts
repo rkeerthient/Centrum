@@ -100,6 +100,21 @@ export interface Image {
 	alternateText?: string,
 }
 
+export interface FrequentlyAskedQuestions {
+	question: string,
+	answer?: string,
+}
+
+export enum Type {
+	DEPARTMENT_IN = "Department In",
+	INDEPENDENT_ESTABLISHMENT_IN = "Independent Establishment In",
+}
+
+export interface GoogleEntityRelationship {
+	type: Type,
+	placeId: string,
+}
+
 export enum PickupAndDeliveryServices {
 	IN_STORE_PICKUP = "In-Store Pickup",
 	CURBSIDE_PICKUP = "Curbside Pickup",
@@ -108,6 +123,19 @@ export enum PickupAndDeliveryServices {
 	SAME_DAY_DELIVERY = "Same Day Delivery",
 	NO_CONTACT_DELIVERY = "No-Contact Delivery",
 	DELIVERY_NOT_OFFERED = "Delivery Not Offered",
+}
+
+export enum Type_1 {
+	POSTAL_CODE = "Postal Code",
+	REGION = "State/Region",
+	COUNTY = "County",
+	CITY = "City",
+	SUBLOCALITY = "Sublocality",
+}
+
+export interface ServiceAreaPlaces {
+	name?: string,
+	type?: Type_1,
 }
 
 export interface Address {
@@ -138,6 +166,29 @@ export interface C_testFacts {
 	name?: string,
 	amountPerServing?: string,
 	dailyValue?: string,
+}
+
+export enum Type_2 {
+	NONE = "None",
+	BOOK_NOW = "Book Now",
+	CALL_NOW = "Call Now",
+	CONTACT_US = "Contact Us",
+	SEND_MESSAGE = "Send Message",
+	USE_APP = "Use App",
+	PLAY_GAME = "Play Game",
+	SHOP_NOW = "Shop Now",
+	SIGN_UP = "Sign Up",
+	WATCH_VIDEO = "Watch Video",
+	SEND_EMAIL = "Send Email",
+	LEARN_MORE = "Learn More",
+	PURCHASE_GIFT_CARDS = "Purchase Gift Cards",
+	ORDER_NOW = "Order Now",
+	FOLLOW_PAGE = "Follow Page",
+}
+
+export interface FacebookCallToAction {
+	type: Type_2,
+	value?: string,
 }
 
 export interface FeaturedMessage {
@@ -280,20 +331,8 @@ export interface ReservationUrl {
 	preferDisplayUrl?: boolean,
 }
 
-export enum Presentation {
-	BUTTON = "Button",
-	LINK = "Link",
-}
-
-export interface UberLink {
-	text?: string,
-	presentation: Presentation,
-}
-
-export interface UberTripBranding {
-	text: string,
-	url: string,
-	description: string,
+export interface ServiceArea {
+	places?: string[],
 }
 
 export interface WebsiteUrl {
@@ -319,18 +358,27 @@ export default interface Location {
 	appleCoverPhoto?: Image,
 	bingWebsiteOverride?: string,
 	blackOwnedBusiness?: boolean,
+	bookingDotComPropertyId?: string,
 	brunchHours?: Hours,
+	questionsAndAnswers?: boolean,
 	covid19InformationUrl?: string,
 	covidMessaging?: string,
 	deliveryHours?: Hours,
 	deliveryUrl?: string,
 	dineInHours?: Hours,
 	driveThroughHours?: Hours,
+	facebookAbout?: string,
 	facebookWebsiteOverride?: string,
+	frequentlyAskedQuestions?: FrequentlyAskedQuestions[],
 	fullyVaccinatedStaff?: boolean,
 	geomodifier?: string,
+	googleEntityRelationship?: GoogleEntityRelationship,
+	googleMyBusinessLabels?: string[],
+	googlePlaceId?: string,
+	googleShortName?: string,
 	happyHours?: Hours,
 	holidayHoursConversationEnabled?: boolean,
+	impressum?: string,
 	kitchenHours?: Hours,
 	landingPageUrl?: string,
 	linkedInUrl?: string,
@@ -344,6 +392,7 @@ export default interface Location {
 	proofOfVaccinationRequired?: boolean,
 	reviewResponseConversationEnabled?: boolean,
 	seniorHours?: Hours,
+	serviceAreaPlaces?: ServiceAreaPlaces[],
 	slug?: string,
 	takeoutHours?: Hours,
 	what3WordsAddress?: string,
@@ -363,15 +412,33 @@ export default interface Location {
 	cityCoordinate?: Coordinate,
 	closed?: boolean,
 	c_testFacts?: C_testFacts[],
+	firstPartyReviewPage?: any,
+	reviewGenerationUrl?: any,
+	defaultReviewInviteTemplate?: any,
 	displayCoordinate?: Coordinate,
 	dropoffCoordinate?: Coordinate,
 	emails?: string[],
+	facebookOverrideCity?: string,
+	facebookCoverPhoto?: Image,
+	facebookCallToAction?: FacebookCallToAction,
+	facebookDescriptor?: string,
 	facebookEmail?: string,
+	facebookLinkedAccount?: any,
+	facebookName?: string,
 	facebookPageUrl?: string,
+	facebookParentPageId?: string,
+	facebookProfilePhoto?: Image,
+	facebookStoreId?: string,
+	facebookVanityUrl?: string,
 	fax?: any,
 	featuredMessage?: FeaturedMessage,
 	photoGallery?: ComplexImage[],
 	geocodedCoordinate?: Coordinate,
+	gmbLinkedAccount?: any,
+	googleAccountId?: string,
+	googleAttributes?: any,
+	googleCoverPhoto?: Image,
+	googleProfilePhoto?: Image,
 	googleWebsiteOverride?: string,
 	instagramHandle?: string,
 	iosAppUrl?: string,
@@ -391,6 +458,7 @@ export default interface Location {
 	products?: string[],
 	reservationUrl?: ReservationUrl,
 	routableCoordinate?: Coordinate,
+	serviceArea?: ServiceArea,
 	services?: string[],
 	shortName35?: string,
 	shortName64?: string,
@@ -400,9 +468,6 @@ export default interface Location {
 	tollFreePhone?: any,
 	ttyPhone?: any,
 	twitterHandle?: string,
-	uberClientId?: string,
-	uberLink?: UberLink,
-	uberTripBranding?: UberTripBranding,
 	walkableCoordinate?: Coordinate,
 	websiteUrl?: WebsiteUrl,
 	yearEstablished?: number,
