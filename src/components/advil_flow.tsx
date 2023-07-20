@@ -12,6 +12,7 @@ import PainCard from "./PainCard";
 import { AiOutlineCheck } from "react-icons/ai";
 import Advil_productCard from "./advil cards/advil_productCard";
 import Advil_articleCard from "./advil cards/advil_articleCard";
+import { Image } from "@yext/pages/components";
 
 const Aadvil_flow = ({ document }: any) => {
   const { c_homeToAdvilPain } = document;
@@ -53,7 +54,7 @@ const Aadvil_flow = ({ document }: any) => {
     return (
       <div className="w-full h-4 bg-gray-200 rounded">
         <div
-          className="h-full bg-blue-500 rounded"
+          className="h-full bg-[#e3005d] rounded"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
@@ -151,16 +152,19 @@ const Aadvil_flow = ({ document }: any) => {
           </>
         )}
         {show && (
-          <div className="max-w-md mx-auto bg-white p-4 shadow">
+          <div className="max-w-5xl mx-auto bg-white p-4 shadow">
             <div className="mb-4">
-              <h2 className="text-xl font-bold mb-2">Questionnaire</h2>
+              <h2 className="text-xl font-bold mb-2">Relief Finder</h2>
               <ProgressBar />
             </div>
             {currentScreen === 1 && (
               <>
                 <div>
-                  <p className="text-lg mb-2">Main Names</p>
-                  <ul>
+                  <p className="text-lg mb-2">
+                    Advil treats a large variety of symptoms, so select one and
+                    we’ll help you narrow it down.
+                  </p>
+                  <ul className="grid grid-cols-3 ">
                     {c_homeToAdvilPain.map((item, index) => (
                       <label
                         key={index}
@@ -180,7 +184,15 @@ const Aadvil_flow = ({ document }: any) => {
                           className="hidden"
                         />
                         <div className="w-full flex items-center px-4 py-2   justify-between">
-                          <div className="text-sm">{item.name}</div>
+                          <div className="flex gap-2 text-sm items-center">
+                            <div>
+                              <Image
+                                image={item.primaryPhoto}
+                                className="h-16"
+                              ></Image>
+                            </div>
+                            <div>{item.name}</div>
+                          </div>
                           <div
                             className={`pl-4 ${
                               selectedMainName === item.name
@@ -197,7 +209,7 @@ const Aadvil_flow = ({ document }: any) => {
                 </div>
                 <div className="flex justify-end mt-4">
                   <button
-                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                    className="px-4 py-2 bg-[#e3005d] text-white rounded"
                     onClick={handleNext}
                     disabled={!selectedMainName}
                   >
@@ -209,11 +221,14 @@ const Aadvil_flow = ({ document }: any) => {
             {currentScreen === 2 && selectedMainName && (
               <>
                 <div>
-                  <p className="text-lg mb-2">Sub-Pain Options</p>
+                  <p className="text-lg mb-2">
+                    Advil can treat a variety of symptoms. Select one and we’ll
+                    help you narrow it down.
+                  </p>
                   {c_homeToAdvilPain.map((item, index) => {
                     if (item.name === selectedMainName && item.c_painSubPain) {
                       return (
-                        <ul key={index}>
+                        <ul key={index} className="grid grid-cols-3">
                           {item.c_painSubPain.map((subPain, subIndex) => (
                             <label
                               key={subIndex}
@@ -235,7 +250,15 @@ const Aadvil_flow = ({ document }: any) => {
                                 className="hidden"
                               />
                               <div className="w-full flex items-center px-4 py-2   justify-between">
-                                <div className="text-sm">{subPain.name}</div>
+                                <div className="flex gap-2 text-sm items-center">
+                                  <div>
+                                    <Image
+                                      image={subPain.primaryPhoto}
+                                      className="h-16"
+                                    ></Image>
+                                  </div>
+                                  <div>{subPain.name}</div>
+                                </div>
                                 <div
                                   className={`pl-4 ${
                                     selectedMainName === subPain.name
@@ -259,13 +282,13 @@ const Aadvil_flow = ({ document }: any) => {
                 </div>
                 <div className="flex justify-between mt-4">
                   <button
-                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                    className="px-4 py-2 bg-[#e3005d] text-white rounded"
                     onClick={handlePrevious}
                   >
                     Previous
                   </button>
                   <button
-                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                    className="px-4 py-2 bg-[#e3005d] text-white rounded"
                     onClick={handleSubmit}
                   >
                     Submit

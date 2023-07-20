@@ -41,7 +41,9 @@ export const config: TemplateConfig = {
       "name",
       "slug",
       "c_homeToAdvilPain.name",
+      "c_homeToAdvilPain.primaryPhoto",
       "c_homeToAdvilPain.c_painSubPain.name",
+      "c_homeToAdvilPain.c_painSubPain.primaryPhoto",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
