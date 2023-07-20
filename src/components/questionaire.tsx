@@ -41,9 +41,6 @@ const Questionnaire = (props: any) => {
       answer === "Rarely/never" &&
       setAnswersString(answersString + "," + "Grains");
 
-    // answersString
-    //   ? setAnswersString(answersString + "," + answer)
-    //   : setAnswersString(answer);
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [header]: {
@@ -54,17 +51,6 @@ const Questionnaire = (props: any) => {
   };
 
   const handleSubmit = () => {
-    // const extractedValues = Object.values(data);
-    // console.log(answersString);
-
-    // let goals = null;
-    // for (let i = 0; i < extractedValues.length; i++) {
-    //   const obj = extractedValues[i];
-    //   if ("What are your goals?" in obj) {
-    //     goals = obj["What are your goals?"];
-    //     break;
-    //   }
-    // }
     const url = `/home-page?query=${answersString}`;
     window.location.href = url;
   };

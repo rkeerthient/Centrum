@@ -22,7 +22,7 @@ const home = ({ document }: any) => {
     }
     return (
       <div>
-        <div>{header} testing</div>
+        <div>{header}</div>
         <div className="grid grid-cols-2 gap-1 md:grid-cols-4 md:gap-8 ">
           {results.map((r: any, index: number) => (
             <CardComponent key={index} result={r} />

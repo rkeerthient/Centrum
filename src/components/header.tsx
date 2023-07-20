@@ -2,6 +2,7 @@ import * as React from "react";
 import { SearchBar, onSearchFunc } from "@yext/search-ui-react";
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
 import { useEffect } from "react";
+import { stringify } from "querystring";
 
 type Link = {
   label: string;
@@ -13,6 +14,7 @@ const links: Link[] = [
     label: "Home",
     url: "/",
   },
+  { label: "Relief", url: "/review-relief" },
   {
     label: "Nutritions",
     url: "/nutrition",
@@ -57,7 +59,10 @@ const Header = ({ _site }: any) => {
     const queryParams = new URLSearchParams(window.location.search);
     state
       ? (searchActions.setVertical(state), searchActions.executeVerticalQuery())
-      : (searchActions.setUniversal(), searchActions.executeUniversalQuery());
+      : (searchActions.setUniversal(),
+        searchActions
+          .executeUniversalQuery()
+          .then((res) => console.log(JSON.stringify(res))));
   };
 
   useEffect(() => {

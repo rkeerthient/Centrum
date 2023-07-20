@@ -5,7 +5,6 @@ import {
   SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
-import searchConfig from "./searchConfig";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import {
@@ -14,19 +13,22 @@ import {
 } from "@yext/chat-headless-react";
 import { ChatHeader, ChatPanel, ChatPopUp } from "@yext/chat-ui-react";
 import { IoChatbubblesSharp } from "react-icons/io5";
+import { searchConfig, searchConfig1 } from "./searchConfig";
 // import "@yext/chat-ui-react/bundle.css";
 
 type Props = {
   _site?: any;
   children?: React.ReactNode;
+  useSecondExp?: boolean;
 };
 
 const searcher = provideHeadless({ ...searchConfig });
+const searcher1 = provideHeadless({ ...searchConfig1 });
 const botConfig: HeadlessConfig = {
   apiKey: import.meta.env.YEXT_PUBLIC_BOT_API_KEY,
   botId: import.meta.env.YEXT_PUBLIC_BOT_ID,
 };
-const PageLayout = ({ _site, children }: Props) => {
+const PageLayout = ({ _site, children, useSecondExp = false }: Props) => {
   const [show_bot, setShow_bot] = useState(false);
   const headConfig = (title: string) => {
     return (
@@ -39,7 +41,7 @@ const PageLayout = ({ _site, children }: Props) => {
     );
   };
   return (
-    <SearchHeadlessProvider searcher={searcher}>
+    <SearchHeadlessProvider searcher={useSecondExp ? searcher1 : searcher}>
       <div className="bg-[#f6f6f6]">
         <div className="min-h-screen ">
           <div>
@@ -50,7 +52,7 @@ const PageLayout = ({ _site, children }: Props) => {
         </div>
       </div>
 
-      <ChatHeadlessProvider config={botConfig}>
+      {/* <ChatHeadlessProvider config={botConfig}>
         <ChatPopUp
           title="Nutrition bot"
           customCssClasses={{
@@ -69,7 +71,7 @@ const PageLayout = ({ _site, children }: Props) => {
             },
           }}
         />
-      </ChatHeadlessProvider>
+      </ChatHeadlessProvider> */}
     </SearchHeadlessProvider>
   );
 };

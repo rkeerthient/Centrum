@@ -4,9 +4,11 @@ const searchConfig = {
   apiKey: import.meta.env.YEXT_PUBLIC_API_KEY,
   experienceKey: import.meta.env.YEXT_PUBLIC_EXP_KEY,
   locale: "en",
-  // verticalKey: "restaurants",
-  // cloudRegion: CloudRegion.US,
-  // environment: Environment.SANDBOX,
+};
+const searchConfig1 = {
+  apiKey: "29a20c4305b7495aced32fc5c59e98cf",
+  experienceKey: "advilpain",
+  locale: "en",
 };
 
-export default searchConfig;
+export { searchConfig, searchConfig1 };
