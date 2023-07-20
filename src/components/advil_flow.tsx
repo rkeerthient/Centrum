@@ -141,14 +141,6 @@ const Aadvil_flow = ({ document }: any) => {
                 />
               </div>
             </div>
-
-            <img src="https://i.imgur.com/rYmRQhQ.png" />
-            <img
-              src="https://i.imgur.com/Vn1va9n.png"
-              className="bg-white my-24"
-            />
-            <img src="https://i.imgur.com/TjAehYX.png" />
-            <img src="https://i.imgur.com/7OYbOfu.png" />
           </>
         )}
         {show && (
@@ -297,7 +289,11 @@ const Aadvil_flow = ({ document }: any) => {
               </>
             )}
           </div>
-        )}
+        )} 
+        <img src="https://i.imgur.com/rYmRQhQ.png" />
+        <img src="https://i.imgur.com/Vn1va9n.png" className="bg-white my-24" />
+        <img src="https://i.imgur.com/TjAehYX.png" />
+        <img src="https://i.imgur.com/7OYbOfu.png" />
       </div>
     </div>
   );
