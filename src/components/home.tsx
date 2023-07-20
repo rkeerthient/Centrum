@@ -73,7 +73,7 @@ const home = ({ document }: any) => {
                 pain: {
                   CardComponent: PainCard,
                   SectionComponent: GridSection,
-                  label: "Pains",
+                  label: "Needs",
                   viewAllButton: true,
                 },
               }}
