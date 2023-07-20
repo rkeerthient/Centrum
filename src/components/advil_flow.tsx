@@ -42,9 +42,7 @@ const Aadvil_flow = ({ document }: any) => {
   };
 
   const handleSubmit = () => {
-    console.log("Main Name: ", selectedMainName);
-    console.log("Selected Sub-Pain: ", selectedSubPain);
-    const searchTerm = selectedMainName! + selectedSubPain!;
+    const searchTerm = `${selectedMainName!},${selectedSubPain!}`;
     const url = `/review-relief?query=${searchTerm}`;
     window.location.href = url;
   };
@@ -81,34 +79,35 @@ const Aadvil_flow = ({ document }: any) => {
       {query && (
         <>
           {!loading ? (
-            <UniversalResults
-              showAppliedFilters={true}
-              customCssClasses={{
-                universalResultsContainer:
-                  "w-full max-w-screen-2xl mx-auto my-12 ",
-              }}
-              verticalConfigMap={{
-                faqs: {
-                  CardComponent: FAQCard,
-                  viewAllButton: true,
-                  label: "FAQs",
-                },
-                products: {
-                  CardComponent: Advil_productCard,
-                  SectionComponent: GridSection,
-                  label: "Products",
-                  viewAllButton: true,
-                },
-                articles: {
-                  CardComponent: Advil_articleCard,
-                  SectionComponent: GridSection,
-                  label: "Articles",
-                  viewAllButton: true,
-                },
-                advil_pain: {},
-                advil_subpain: {},
-              }}
-            />
+            <div className="centered-container">
+              <UniversalResults
+                showAppliedFilters={true}
+                customCssClasses={{
+                  universalResultsContainer:
+                    "w-full max-w-screen-2xl mx-auto my-12 ",
+                }}
+                verticalConfigMap={{
+                  faqs: {
+                    CardComponent: FAQCard,
+                    viewAllButton: true,
+                    label: "FAQs",
+                  },
+                  products: {
+                    CardComponent: Advil_productCard,
+                    label: "Products",
+                    viewAllButton: true,
+                  },
+                  articles: {
+                    CardComponent: Advil_articleCard,
+                    SectionComponent: GridSection,
+                    label: "Articles",
+                    viewAllButton: true,
+                  },
+                  advil_pain: {},
+                  advil_subpain: {},
+                }}
+              />
+            </div>
           ) : (
             <div className="h-screen flex justify-center items-center">
               <div className="h-16 w-16 rounded-full animate-spin border border-solid border-gray-600 border-t-transparent"></div>

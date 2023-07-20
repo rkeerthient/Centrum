@@ -101,7 +101,6 @@ const Advil_Pain: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const [hideFlow, setHideFlow] = useState(false);
-  console.log(JSON.stringify(document.c_homeToAdvilPain));
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);

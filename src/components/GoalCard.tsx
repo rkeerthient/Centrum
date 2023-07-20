@@ -4,7 +4,6 @@ const GoalCard = (props: CardProps<any>): JSX.Element => {
   const { result } = props;
   const { name } = result;
   const { c_nutrientsToGoal } = result.rawData;
-  console.log(JSON.stringify(props));
 
   return (
     <div className="w-full space-y-4 border p-8 ">
