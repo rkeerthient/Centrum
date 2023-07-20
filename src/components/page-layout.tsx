@@ -52,7 +52,7 @@ const PageLayout = ({ _site, children, useSecondExp = false }: Props) => {
         </div>
       </div>
 
-      {/* <ChatHeadlessProvider config={botConfig}>
+      <ChatHeadlessProvider config={botConfig}>
         <ChatPopUp
           title="Nutrition bot"
           customCssClasses={{
@@ -71,7 +71,7 @@ const PageLayout = ({ _site, children, useSecondExp = false }: Props) => {
             },
           }}
         />
-      </ChatHeadlessProvider> */}
+      </ChatHeadlessProvider>
     </SearchHeadlessProvider>
   );
 };
